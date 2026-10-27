@@ -30,11 +30,11 @@ The workflow consists of three steps: configure RSS sources, define keyword crit
 
 ### Managing RSS sources
 
-RSS sources are managed through the Django administration interface:
+RSS sources are managed through the **Sources** section of the application:
 
-**URL**: http://localhost:8000/admin/
+From this section, you can add new sources, edit existing ones, activate or deactivate them, and delete sources that are no longer needed.
 
-Open the **Job sources** table to manage the available sources. Each source has the following fields:
+Each source has the following fields:
 
 | Field     | Description                       |
 |-----------|-----------------------------------|
@@ -42,13 +42,13 @@ Open the **Job sources** table to manage the available sources. Each source has 
 | url       | URL of the RSS feed.              |
 | is_active | Enables or disables the source.   |
 
-From the administration interface, you can add new sources, edit existing ones, activate or deactivate them, and delete sources that are no longer needed.
-
 Only active sources are considered when importing job offers.
 
 ### Managing keywords
 
-Keywords are also managed through **Jobs keywords** table in the Django administration interface.
+Keywords are managed through the **Keywords** section of the application.
+
+From this section, you can add new keywords, edit existing ones, activate or deactivate them, and delete keywords that are no longer needed.
 
 Each keyword entry has the following fields:
 
@@ -71,7 +71,7 @@ The **Import offers** section of the application retrieves new job offers from t
 
 The workflow is as follows:
 
-1. Configure the RSS sources and keywords in Django administration.
+1. Configure RSS sources in the Sources section and keyword criteria in the Keywords section.
 2. Open Import offers and run the import.
 3. The application fetches new offers from active RSS sources.
 4. The offers are evaluated against the active keywords and assigned a score.
@@ -217,6 +217,8 @@ Once the containers are running:
   Frontend       http://localhost:5173
   Django admin   http://localhost:8000/admin/
   Jobs API       http://localhost:8000/api/jobs/
+
+The Django administration interface is optional and intended for Django-level administration and debugging. The usual application workflow is handled through the frontend.
 
 The frontend uses `VITE_API_URL` to locate the backend API.
 

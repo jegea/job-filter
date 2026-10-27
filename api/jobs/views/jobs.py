@@ -1,22 +1,16 @@
 from django.db.models import Count, F, FloatField, Q
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
-from django.shortcuts import render
-
-from jobs.services.job_ingestion import ingest_jobs
+from django.shortcuts import get_object_or_404
 
 from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
-from .models import Job
-from .serializers import JobReviewSerializer, JobSerializer
-
-@api_view(["GET"])
-def health_check(request):
-    return Response({"status": "ok"})
+from jobs.models import Job
+from jobs.serializers import JobReviewSerializer, JobSerializer
+from jobs.services.job_ingestion import ingest_jobs
 
 @api_view(["GET"])
 def job_list(request):

@@ -2,7 +2,6 @@ from rest_framework.test import APITestCase
 
 from jobs.models import Job, JobSource
 
-
 class JobListViewTests(APITestCase):
     @classmethod
     def setUpTestData(cls):

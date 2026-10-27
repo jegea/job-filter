@@ -2,6 +2,8 @@ import {
   Activity,
   BriefcaseBusiness,
   LayoutDashboard,
+  Rss,
+  Tags,
   Upload,
 } from 'lucide-react'
 import { NavLink, useLocation } from 'react-router'
@@ -38,6 +40,16 @@ const navigationItems = [
     title: 'Import offers',
     url: '/jobs-import',
     icon: Upload,
+  },
+  {
+    title: 'RSS Sources',
+    url: '/sources',
+    icon: Rss,
+  },
+  {
+    title: 'Keywords',
+    url: '/keywords',
+    icon: Tags,
   },
 ]
 
